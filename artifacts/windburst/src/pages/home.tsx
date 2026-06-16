@@ -12,6 +12,8 @@ import rocketFlight from "@assets/Screenshot_20260616_182728_Gallery_upscayl_4x_
 import parachute from "@assets/Screenshot_2026-04-28_201647_1781629243086.png";
 import cadModel from "@assets/Screenshot_2026-06-14_232113_1781629243088.png";
 import cadSection from "@assets/Screenshot_2026-06-15_215809_1781629243088.png";
+import sidAvatar from "@assets/minecraft-render-blazing_phantom-walking-800x1000_(1)_1781639200142.png";
+import kpAvatar from "@assets/minecraft-render-kp007-walking-800x1000_(1)_1781639200145.png";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -27,9 +29,9 @@ const staggerContainer = {
 };
 
 const team = [
-  { name: "Siddarth Assudani" },
-  { name: "Krishna Pandey" },
-  { name: "Maxmillan Mokrzanski" },
+  { name: "Siddarth Assudani", avatar: sidAvatar },
+  { name: "Krishna Pandey", avatar: kpAvatar },
+  { name: "Maxmillan Mokrzanski", avatar: null },
 ];
 
 const gallery = [
@@ -258,9 +260,19 @@ export default function Home() {
                 className="group relative border border-white/10 bg-black/40 backdrop-blur-sm p-8 hover:bg-white/5 transition-colors"
               >
                 <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-primary/60 to-transparent scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
-                <div className="w-14 h-14 bg-white/5 border border-white/10 mb-6 flex items-center justify-center text-primary font-mono text-sm font-bold">
-                  {member.name.split(" ").map(n => n[0]).join("")}
-                </div>
+                {member.avatar ? (
+                  <div className="w-24 h-24 mb-6 overflow-hidden bg-black border border-white/10">
+                    <img
+                      src={member.avatar}
+                      alt={member.name}
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                ) : (
+                  <div className="w-14 h-14 bg-white/5 border border-white/10 mb-6 flex items-center justify-center text-primary font-mono text-sm font-bold">
+                    {member.name.split(" ").map((n: string) => n[0]).join("")}
+                  </div>
+                )}
                 <div className="text-xs font-mono text-primary tracking-widest mb-1">CO-FOUNDER</div>
                 <h4 className="text-lg font-bold text-white tracking-tight">{member.name}</h4>
               </motion.div>
