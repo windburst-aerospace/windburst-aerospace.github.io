@@ -8,7 +8,7 @@ import {
   Mail,
 } from "lucide-react";
 
-import rocketFlight from "@assets/Screenshot_2026-04-28_200308_1781629243082.png";
+import rocketFlight from "@assets/Screenshot_20260616_182728_Gallery_upscayl_4x_high-fidelity-4x_1781631734645.png";
 import parachute from "@assets/Screenshot_2026-04-28_201647_1781629243086.png";
 import cadModel from "@assets/Screenshot_2026-06-14_232113_1781629243088.png";
 import cadSection from "@assets/Screenshot_2026-06-15_215809_1781629243088.png";
@@ -27,16 +27,16 @@ const staggerContainer = {
 };
 
 const team = [
-  { name: "Siddarth Assudani", role: "Co-Founder", squad: "PROPULSION" },
-  { name: "Krishna Pandey", role: "Co-Founder", squad: "AVIONICS" },
-  { name: "Maxmillan Mokrzanski", role: "Co-Founder", squad: "STRUCTURES" },
+  { name: "Siddarth Assudani" },
+  { name: "Krishna Pandey" },
+  { name: "Maxmillan Mokrzanski" },
 ];
 
 const gallery = [
   { img: rocketFlight, label: "LAUNCH", caption: "Rocket ascending under full thrust" },
   { img: parachute, label: "RECOVERY", caption: "Parachute deployment at apogee" },
-  { img: cadModel, label: "CAD — MOTOR MOUNT", caption: "Machined motor retention hardware" },
-  { img: cadSection, label: "CAD — CROSS SECTION", caption: "Engine casing and retention assembly" },
+  { img: cadModel, label: "CAD — ENGINE INPUT", caption: "N\u2082O/IPA liquid rocket engine propellant input" },
+  { img: cadSection, label: "CAD — 800N PROTOTYPE", caption: "800N liquid rocket engine cross-section" },
 ];
 
 export default function Home() {
@@ -261,9 +261,8 @@ export default function Home() {
                 <div className="w-14 h-14 bg-white/5 border border-white/10 mb-6 flex items-center justify-center text-primary font-mono text-sm font-bold">
                   {member.name.split(" ").map(n => n[0]).join("")}
                 </div>
-                <div className="text-xs font-mono text-primary tracking-widest mb-1">{member.squad}</div>
+                <div className="text-xs font-mono text-primary tracking-widest mb-1">CO-FOUNDER</div>
                 <h4 className="text-lg font-bold text-white tracking-tight">{member.name}</h4>
-                <div className="text-sm font-mono text-muted-foreground mt-1">{member.role}</div>
               </motion.div>
             ))}
           </div>
@@ -290,12 +289,11 @@ export default function Home() {
               Interested in following our builds or collaborating? Reach out.
             </p>
             <a
-              href="mailto:windburst@example.com"
+              href="mailto:windburstaerospace@gmail.com"
               className="inline-flex items-center gap-3 border border-white/20 px-8 py-4 font-mono text-sm tracking-widest hover:bg-white/5 hover:border-primary/50 transition-all text-white"
             >
               <Mail className="w-4 h-4" />
-              {/* Edit email address */}
-              windburst@example.com
+              windburstaerospace@gmail.com
             </a>
           </motion.div>
         </div>
