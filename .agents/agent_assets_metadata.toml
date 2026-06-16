@@ -1,0 +1,26 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "VeG13-BPJxGbg5o7CdRst"
+uri = "file://artifacts/windburst/src/assets/images/hero.png"
+type = "image"
+title = "Rocket launch hero background"
+
+[[generated]]
+id = "URzgioEtG4Y0RlgzU-Opr"
+uri = "file://artifacts/windburst/src/assets/images/project-1.png"
+type = "image"
+title = "Avionics PCB board"
+
+[[generated]]
+id = "qdfmcsHRTQcsNaJ8shsXU"
+uri = "file://artifacts/windburst/src/assets/images/project-2.png"
+type = "image"
+title = "Carbon fiber rocket nosecone"
+
+[[generated]]
+id = "QfibuCCfIxptyUj7ybFsj"
+uri = "file://artifacts/windburst/src/assets/images/project-3.png"
+type = "image"
+title = "Satellite payload in clean room"
