@@ -67,7 +67,7 @@ export default function Home() {
             <a href="https://www.youtube.com/@WindBurstAero" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-red-500 transition-colors">
               <Youtube className="w-7 h-7" />
             </a>
-            <a href="/members" className="font-mono text-xs text-muted-foreground hover:text-primary transition-colors border border-white/10 hover:border-primary/40 px-3 py-1.5">
+            <a href={import.meta.env.VITE_MEMBERS_URL ?? "/members"} className="font-mono text-xs text-muted-foreground hover:text-primary transition-colors border border-white/10 hover:border-primary/40 px-3 py-1.5">
               MEMBERS
             </a>
           </div>
