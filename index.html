@@ -21,5 +21,21 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      (function() {
+        var query = window.location.search;
+        if (query.indexOf('p=') !== -1) {
+          var params = query.slice(1).split('&').reduce(function(p, s) {
+            var eq = s.indexOf('=');
+            p[decodeURIComponent(s.slice(0, eq))] = decodeURIComponent(s.slice(eq + 1));
+            return p;
+          }, {});
+          if (params.p) {
+            var hash = params.h ? decodeURIComponent(params.h) : '';
+            window.history.replaceState(null, null, params.p + hash);
+          }
+        }
+      })();
+    </script>
   </body>
 </html>
