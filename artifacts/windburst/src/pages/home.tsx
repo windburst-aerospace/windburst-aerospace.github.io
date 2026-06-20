@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import {
   Rocket,
   ChevronRight,
-  Github,
   Mail,
   Youtube,
 } from "lucide-react";
@@ -66,7 +65,7 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-3">
             <a href="https://www.youtube.com/@WindBurstAero" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-red-500 transition-colors">
-              <Youtube className="w-5 h-5" />
+              <Youtube className="w-7 h-7" />
             </a>
             <a href="/members" className="font-mono text-xs text-muted-foreground hover:text-primary transition-colors border border-white/10 hover:border-primary/40 px-3 py-1.5">
               MEMBERS
@@ -326,14 +325,9 @@ export default function Home() {
           <span className="text-xs font-mono text-muted-foreground">
             Siddarth Assudani · Krishna Pandey · Maxmillan Mokrzanski
           </span>
-          <div className="flex items-center gap-4">
-            <a href="https://www.youtube.com/@WindBurstAero" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-red-500 transition-colors">
-              <Youtube className="w-4 h-4" />
-            </a>
-            <a href="https://github.com/windburst-aerospace" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-white transition-colors">
-              <Github className="w-4 h-4" />
-            </a>
-          </div>
+          <a href="https://www.youtube.com/@WindBurstAero" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-red-500 transition-colors">
+            <Youtube className="w-6 h-6" />
+          </a>
         </div>
       </footer>
     </div>
