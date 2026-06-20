@@ -6,6 +6,7 @@ import {
   ChevronRight,
   Github,
   Mail,
+  Youtube,
 } from "lucide-react";
 
 import rocketFlight from "@assets/Screenshot_20260616_182728_Gallery_upscayl_4x_high-fidelity-4x_1781631734645.png";
@@ -14,6 +15,7 @@ import cadModel from "@assets/Screenshot_2026-06-14_232113_1781629243088.png";
 import cadSection from "@assets/Screenshot_2026-06-15_215809_1781629243088.png";
 import sidAvatar from "@assets/minecraft-render-blazing_phantom-walking-800x1000_(1)_1781639200142.png";
 import kpAvatar from "@assets/minecraft-render-kp007-walking-800x1000_(1)_1781639200145.png";
+import maxAvatar from "@assets/image_1781980338707.webp";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -31,7 +33,7 @@ const staggerContainer = {
 const team = [
   { name: "Siddarth Assudani", avatar: sidAvatar },
   { name: "Krishna Pandey", avatar: kpAvatar },
-  { name: "Maxmillan Mokrzanski", avatar: null },
+  { name: "Maxmillan Mokrzanski", avatar: maxAvatar },
 ];
 
 const gallery = [
@@ -62,11 +64,14 @@ export default function Home() {
             <a href="#team" className="hover:text-primary transition-colors">TEAM</a>
             <a href="#contact" className="hover:text-primary transition-colors">CONTACT</a>
           </div>
-          <a href="https://github.com" target="_blank" rel="noreferrer">
-            <Button variant="outline" className="rounded-none font-mono text-xs font-bold tracking-wider border-white/20 hover:bg-white/5">
-              <Github className="w-4 h-4 mr-2" /> GITHUB
-            </Button>
-          </a>
+          <div className="flex items-center gap-3">
+            <a href="https://www.youtube.com/@WindBurstAero" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-red-500 transition-colors">
+              <Youtube className="w-5 h-5" />
+            </a>
+            <a href="/members" className="font-mono text-xs text-muted-foreground hover:text-primary transition-colors border border-white/10 hover:border-primary/40 px-3 py-1.5">
+              MEMBERS
+            </a>
+          </div>
         </div>
       </nav>
 
@@ -301,11 +306,11 @@ export default function Home() {
               Interested in following our builds or collaborating? Reach out.
             </p>
             <a
-              href="mailto:windburstaerospace@gmail.com"
+              href="mailto:windburst.aerospace@gmail.com"
               className="inline-flex items-center gap-3 border border-white/20 px-8 py-4 font-mono text-sm tracking-widest hover:bg-white/5 hover:border-primary/50 transition-all text-white"
             >
               <Mail className="w-4 h-4" />
-              windburstaerospace@gmail.com
+              windburst.aerospace@gmail.com
             </a>
           </motion.div>
         </div>
@@ -321,9 +326,14 @@ export default function Home() {
           <span className="text-xs font-mono text-muted-foreground">
             Siddarth Assudani · Krishna Pandey · Maxmillan Mokrzanski
           </span>
-          <a href="https://github.com" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-white transition-colors">
-            <Github className="w-5 h-5" />
-          </a>
+          <div className="flex items-center gap-4">
+            <a href="https://www.youtube.com/@WindBurstAero" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-red-500 transition-colors">
+              <Youtube className="w-4 h-4" />
+            </a>
+            <a href="https://github.com/windburst-aerospace" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-white transition-colors">
+              <Github className="w-4 h-4" />
+            </a>
+          </div>
         </div>
       </footer>
     </div>
