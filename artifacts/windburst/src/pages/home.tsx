@@ -10,7 +10,7 @@ import cadModel from "@assets/Screenshot_2026-06-14_232113_1781629243088.png";
 import cadSection from "@assets/Screenshot_2026-06-15_215809_1781629243088.png";
 import railCad from "@assets/Screenshot_2026-06-20_130205_1782843628194.png";
 import engineSection from "@assets/Screenshot_2026-06-21_180703_1782843628196.png";
-import openRocket from "@assets/Screenshot_2026-05-31_194331_1782843667675.png";
+import openRocket from "@assets//Screenshot 2026-06-30 201305.png";
 import sidAvatar from "@assets/minecraft-render-blazing_phantom-walking-800x1000_(1)_1781639200142.png";
 import kpAvatar from "@assets/minecraft-render-kp007-walking-800x1000_(1)_1781639200145.png";
 import maxAvatar from "@assets/image_1781980338707.webp";
@@ -44,8 +44,8 @@ const gallery = [
   { img: parachute,      label: "RECOVERY",             caption: "Parachute deployment at apogee" },
   { img: engineSection,  label: "CAD — LRE-800",        caption: "800N liquid rocket engine cross-section" },
   { img: cadModel,       label: "CAD — ENGINE INPUT",   caption: "N₂O/IPA propellant input assembly" },
-  { img: railCad,        label: "CAD — RAIL SYSTEM",    caption: "Launch rail fin-can interface" },
-  { img: openRocket,     label: "SIMULATION",           caption: "OpenRocket — 14,774 ft predicted apogee (L619-P)" },
+  { img: railCad,        label: "CAD — RAIL SYSTEM",    caption: "Basic Prototype Test Stand interface" },
+  { img: openRocket,     label: "SIMULATION",           caption: "OpenRocket Simulation for our Liquid Rocket" },
   { img: cadSection,     label: "CAD — 800N PROTOTYPE", caption: "Combustion chamber cross-section" },
 ];
 

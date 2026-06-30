@@ -17,7 +17,7 @@ import {
 
 import engineSection from "@assets/Screenshot_2026-06-21_180703_1782843628196.png";
 import railCad from "@assets/Screenshot_2026-06-20_130205_1782843628194.png";
-import openRocket from "@assets/Screenshot_2026-05-31_194331_1782843667675.png";
+import openRocket from "@assets/Screenshot 2026-06-30 201305.png";
 import cadModel from "@assets/Screenshot_2026-06-14_232113_1781629243088.png";
 import cadSection from "@assets/Screenshot_2026-06-15_215809_1781629243088.png";
 import rocketFlight from "@assets/Screenshot_20260616_182728_Gallery_upscayl_4x_high-fidelity-4x_1781631734645.png";
@@ -112,19 +112,19 @@ const projects: Project[] = [
     description:
       "Our current high-power solid rocket build targeting a 14,000+ ft apogee on an L-class motor. Full dual-deploy recovery, onboard altimeters, and GPS tracking. Serves as our primary flight certification vehicle.",
     specs: [
-      { label: "Length", value: "255 cm" },
+      { label: "Length", value: "250 cm" },
       { label: "Diameter", value: "7.62 cm" },
-      { label: "Motor", value: "L619-P" },
-      { label: "Apogee", value: "14,774 ft (sim)" },
-      { label: "Max Vel.", value: "318 m/s (Mach 0.95)" },
-      { label: "Mass (Liftoff)", value: "13,693 g" },
+      { label: "Motor", value: "Our Liquid Rocket engine" },
+      { label: "Apogee", value: "16,000 ft (sim)" },
+      { label: "Max Vel.", value: "412 m/s (Mach 1.234)" },
+      { label: "Mass (Liftoff)", value: "12 KGs" },
       { label: "Impulse", value: "5120Ns" },
     ],
     images: [
       {
         img: openRocket,
         caption:
-          "OpenRocket simulation — L619-P configuration, 14,774 ft predicted apogee",
+          "OpenRocket simulation",
       },
       { img: railCad, caption: "Launch rail / fin-can interface — CAD render" },
     ],
