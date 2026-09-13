@@ -1,37 +1,58 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1"
+    />
     <title>Windburst Aerospace</title>
-    <meta name="description" content="Windburst Aerospace — built on Replit. Update this description to reflect the app." />
+    <meta
+      name="description"
+      content="Windburst Aerospace — built on Replit. Update this description to reflect the app."
+    />
     <meta name="robots" content="index, follow" />
+    <meta name="google-site-verification" content="google8a88243855844925" />
     <meta property="og:title" content="Windburst Aerospace" />
-    <meta property="og:description" content="Windburst Aerospace — built on Replit. Update this description to reflect the app." />
+    <meta
+      property="og:description"
+      content="Official Website of UK based Rocketry team - windburst aerospace"
+    />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Windburst Aerospace" />
-    <meta name="twitter:description" content="Windburst Aerospace — built on Replit. Update this description to reflect the app." />
+    <meta
+      name="twitter:description"
+      content="Official Website of UK based Rocketry team - windburst aerospace"
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <script type="module" crossorigin src="/assets/index-1_Mzmt8B.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Dc6pDF6I.css">
   </head>
   <body>
     <div id="root"></div>
     <script>
-      (function() {
+      (function () {
         var query = window.location.search;
-        if (query.indexOf('p=') !== -1) {
-          var params = query.slice(1).split('&').reduce(function(p, s) {
-            var eq = s.indexOf('=');
-            p[decodeURIComponent(s.slice(0, eq))] = decodeURIComponent(s.slice(eq + 1));
-            return p;
-          }, {});
+        if (query.indexOf("p=") !== -1) {
+          var params = query
+            .slice(1)
+            .split("&")
+            .reduce(function (p, s) {
+              var eq = s.indexOf("=");
+              p[decodeURIComponent(s.slice(0, eq))] = decodeURIComponent(
+                s.slice(eq + 1),
+              );
+              return p;
+            }, {});
           if (params.p) {
-            var hash = params.h ? decodeURIComponent(params.h) : '';
+            var hash = params.h ? decodeURIComponent(params.h) : "";
             window.history.replaceState(null, null, params.p + hash);
           }
         }
