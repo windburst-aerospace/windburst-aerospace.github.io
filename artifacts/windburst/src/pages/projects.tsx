@@ -15,11 +15,11 @@ import {
   Target,
 } from "lucide-react";
 
-import engineSection from "@assets/Screenshot_2026-06-21_180703_1782843628196.png";
 import railCad from "@assets/Screenshot_2026-06-20_130205_1782843628194.png";
 import openRocket from "@assets/Screenshot 2026-06-30 201305.png";
 import cadModel from "@assets/Screenshot_2026-06-14_232113_1781629243088.png";
 import cadSection from "@assets/Screenshot_2026-06-15_215809_1781629243088.png";
+import combustionChamberCrossSection from "@assets/image_1789301246903.png";
 import rocketFlight from "@assets/Screenshot_20260616_182728_Gallery_upscayl_4x_high-fidelity-4x_1781631734645.png";
 
 const spring = { type: "spring" as const, stiffness: 80, damping: 20 };
@@ -69,7 +69,7 @@ const projects: Project[] = [
     id: "proto-l",
     name: "Flight Based L-Class Liquid",
     subtitle: "Liquid Rocket Engine",
-    status: "IN DEVELOPMENT",
+    status: "ACTIVE",
     icon: <FlaskConical className="w-5 h-5" />,
     description:
       "Our flagship project — an 800N thrust liquid bipropellant rocket engine using nitrous oxide and isopropyl alcohol. Designed and manufactured entirely in-house, from injector plate to nozzle geometry.",
@@ -83,7 +83,7 @@ const projects: Project[] = [
     ],
     images: [
       {
-        img: engineSection,
+        img: combustionChamberCrossSection,
         caption: "Combustion chamber cross-section — valve and injector layout",
       },
       {
@@ -93,6 +93,18 @@ const projects: Project[] = [
       { img: cadSection, caption: "Engine CAD — full cross-section view" },
     ],
     updates: [
+      {
+        date: "3 Sept, 2026",
+        text: "All CNC and Sheet Metal Parts Ordered",
+      },
+      {
+        date: "Aug 10, 2026",
+        text: "All major electronic parts and fittings have arrived.",
+      },
+      {
+        date: "Aug 1, 2026",
+        text: "Full Engine + Tank CAD finshed",
+      },
       {
         date: "Jun 21, 2026",
         text: "Finalized combustion chamber geometry and injector plate bolt pattern in CAD.",
@@ -135,20 +147,28 @@ const projects: Project[] = [
     id: "hotfire-stand",
     name: "HOTFIRE STAND",
     subtitle: "Static Test Infrastructure",
-    status: "PLANNING",
+    status: "IN DEVELOPMENT",
     icon: <Zap className="w-5 h-5" />,
     description:
       "A dedicated static test stand for the our future engines. Will measure thrust via load cell, log chamber pressure, and allow safe hotfire testing before flight integration. Designed for outdoor use.",
     specs: [
-      { label: "Load Cell", value: "0–20000 N" },
-      { label: "Logging", value: "500 Hz data rate" },
+      { label: "Load Cell", value: "0–10000 N" },
+      { label: "Logging", value: "80 Hz data rate" },
       { label: "Sensors", value: "Pressure, temp, thrust" },
-      { label: "Interface", value: "Teensy 4.1 + Radio" },
+      { label: "Interface", value: "ESP32 + Radio" },
       { label: "Material", value: "Aluminum 6061-T6 assembly" },
       { label: "Propellant", value: "Remote-fill, remote-ignite" },
     ],
     images: [],
     updates: [
+      {
+        date: "Aug 31, 2026",
+        text: "Electronics basic features tested and code in BETA",
+      },
+      {
+        date: "Aug 10, 2026",
+        text: "Load cell and electronics arrived",
+      },
       {
         date: "Jun 10, 2026",
         text: "Load cell spec selected. Preliminary frame dimensions drawn up.",
