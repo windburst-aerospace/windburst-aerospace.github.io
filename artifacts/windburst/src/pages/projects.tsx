@@ -72,7 +72,7 @@ const projects: Project[] = [
     status: "ACTIVE",
     icon: <FlaskConical className="w-5 h-5" />,
     description:
-      "Our flagship project — an 800N thrust liquid bipropellant rocket engine using nitrous oxide and isopropyl alcohol. Designed and manufactured entirely in-house, from injector plate to nozzle geometry.",
+      "Our flagship project — an 800N thrust liquid bipropellant rocket engine using nitrous oxide and isopropyl alcohol. Designed mostly in house, from feed system to nozzle geometry.",
     specs: [
       { label: "Thrust", value: "800 N" },
       { label: "Propellants", value: "N₂O / IPA" },
