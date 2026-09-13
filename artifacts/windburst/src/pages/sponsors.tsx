@@ -11,6 +11,7 @@ import {
   Sparkles,
   Wrench,
   Youtube,
+  FlaskConical,
 } from "lucide-react";
 import rocketFlight from "@assets/Screenshot_20260616_182728_Gallery_upscayl_4x_high-fidelity-4x_1781631734645.png";
 
@@ -44,8 +45,8 @@ const supportAreas = [
 
 const sponsorTiers = [
   {
-    name: "BRONZE",
-    amount: "1K+",
+    name: "FIBERGLASS",
+    amount: "£100",
     icon: Rocket,
     accent: "text-orange-300",
     border: "border-orange-300/25",
@@ -53,32 +54,100 @@ const sponsorTiers = [
     benefits: ["Build updates", "Sponsor roll call", "Digital partner badge"],
   },
   {
+    name: "COPPER",
+    amount: "£250",
+    icon: Rocket,
+    accent: "text-orange-200",
+    border: "border-red-300/25",
+    copy: "Help Out More and spread your name by being on us. ",
+    benefits: ["Everything in Bronze", "Name + logo display on shirts "],
+  },
+  {
+    name: "ALUMINUM",
+    amount: "£600",
+    icon: Rocket,
+    accent: "text-gray-400",
+    border: "border-gray-400/25",
+    copy: "Make prototypes into a reality and check up on us. ",
+    benefits: [
+      "Everything in Copper",
+      "Detailed Progress Updates",
+      "Occasional Build Photos",
+    ],
+  },
+  {
     name: "SILVER",
-    amount: "3K+",
+    amount: "£1k",
     icon: Wrench,
     accent: "text-slate-200",
     border: "border-slate-200/25",
     copy: "Help move a real hardware milestone from design to bench.",
-    benefits: ["Everything in Bronze", "Build photography", "Milestone briefings"],
+    benefits: [
+      "Everything in Aluminum",
+      "Build photography",
+      "Milestone briefings",
+    ],
   },
   {
-    name: "GOLD",
-    amount: "7.5K+",
-    icon: ShieldCheck,
-    accent: "text-yellow-300",
-    border: "border-yellow-300/35",
+    name: "Steel",
+    amount: "£3K",
+    icon: Wrench,
+    accent: "text-gray-500",
+    border: "border-gray-500/35",
     copy: "Back a full workstream across propulsion, testing, or recovery.",
-    benefits: ["Everything in Silver", "Featured partner presence", "Direct team updates"],
+    benefits: [
+      "Everything in Silver",
+      "Featured partner presence",
+      "Direct team updates",
+    ],
+  },
+  {
+    name: "CARBON-FIBER",
+    amount: "£5K",
+    icon: Sparkles,
+    accent: "text-gray-800 [text-shadow:_0_0_15px_#d1d5db]",
+    iconStyle: "text-black [filter:drop-shadow(0_0_1px_#d1d5db)]",
+    border: "border-gray-500/35 [text-shadow:_0_0_2px_#d1d5db]",
+    copy: "Back a full workstream across propulsion, testing, or recovery.",
+    benefits: ["Everything in Steel", "", "Logo on every rocket"],
+  },
+  {
+    name: "TUNGSTUN",
+    amount: "£10K",
+    icon: Sparkles,
+    accent: "text-primary [text-shadow:_0_0_15px_#7DD3FC]",
+    border: "border-primary/70",
+    copy: "Become an anchor partner for the future height-record liquid rocket program.",
+    benefits: [
+      "Everything in Steel",
+      "Anchor partner status",
+      "Custom partnership plan",
+    ],
+    featured: true,
   },
   {
     name: "DIAMOND",
-    amount: "15K+",
+    amount: "£20K",
     icon: Sparkles,
-    accent: "text-primary",
+    accent: "text-yellow-300 [text-shadow:_0_0_15px_#FFD700]",
     border: "border-primary/70",
-    copy: "Become an anchor partner for the future height-record liquid rocket program.",
-    benefits: ["Everything in Gold", "Anchor partner status", "Custom partnership plan"],
+    copy: "Funding an entire program for the height-record liquid rocket and be the reason we continue to succeed",
+    benefits: [
+      "Everything in Tungstun",
+      "Logo and Name mentions everytime in any presentation",
+      "Call us anytime or Consult us anytime ",
+      "discounts up to 40% on custom orders",
+    ],
     featured: true,
+  },
+  {
+    name: "CUSTOM",
+    amount: "TAILORED",
+    icon: FlaskConical,
+    accent: "text-accent",
+    border: "border-accent/40",
+    copy: "Have a different budget, capability, or campaign in mind? Let’s shape the partnership around it.",
+    benefits: ["Flexible scope", "Mutual deliverables", "Direct planning call"],
   },
 ];
 
@@ -109,17 +178,35 @@ export default function SponsorsPage() {
     <div className="wb-atmosphere min-h-screen overflow-hidden bg-background text-foreground selection:bg-primary/25">
       <nav className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-background/75 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 md:h-20 md:px-8">
-          <Link href="/" className="flex items-center gap-2.5" data-testid="link-sponsors-home">
+          <Link
+            href="/"
+            className="flex items-center gap-2.5"
+            data-testid="link-sponsors-home"
+          >
             <Rocket className="h-5 w-5 text-primary" />
-            <span className="text-base font-bold tracking-[0.14em] text-white">WINDBURST</span>
+            <span className="text-base font-bold tracking-[0.14em] text-white">
+              WINDBURST
+            </span>
             <span className="hidden border-l border-white/15 pl-2 font-mono text-[10px] tracking-[0.2em] text-muted-foreground sm:inline">
               AEROSPACE
             </span>
           </Link>
           <div className="flex items-center gap-3 md:gap-6">
             <div className="hidden items-center gap-6 font-mono text-[11px] tracking-[0.18em] text-muted-foreground md:flex">
-              <Link href="/" className="transition-colors hover:text-primary" data-testid="link-sponsor-nav-home">HOME</Link>
-              <Link href="/projects" className="transition-colors hover:text-primary" data-testid="link-sponsor-nav-projects">PROJECTS</Link>
+              <Link
+                href="/"
+                className="transition-colors hover:text-primary"
+                data-testid="link-sponsor-nav-home"
+              >
+                HOME
+              </Link>
+              <Link
+                href="/projects"
+                className="transition-colors hover:text-primary"
+                data-testid="link-sponsor-nav-projects"
+              >
+                PROJECTS
+              </Link>
               <span className="text-primary">SPONSOR</span>
             </div>
             <Link
@@ -141,7 +228,11 @@ export default function SponsorsPage() {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1.3, ease: "easeOut" }}
           >
-            <img src={rocketFlight} alt="" className="h-full w-full object-cover object-center opacity-45" />
+            <img
+              src={rocketFlight}
+              alt=""
+              className="h-full w-full object-cover object-center opacity-45"
+            />
           </motion.div>
           <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,hsl(var(--background))_4%,hsla(222,36%,6%,.84)_46%,hsla(222,36%,6%,.25)),linear-gradient(0deg,hsl(var(--background))_2%,transparent_52%,hsla(222,36%,6%,.68))]" />
           <div className="absolute right-[12%] top-[30%] -z-10 h-28 w-28 rounded-full border border-primary/20" />
@@ -176,7 +267,10 @@ export default function SponsorsPage() {
                 transition={{ ...spring, delay: 0.18 }}
                 className="mt-8 max-w-xl font-mono text-sm leading-7 text-white/65 md:text-base"
               >
-                Windburst Aerospace is working toward a record-breaking future liquid rocket program, powered by custom engines and built from the ground up. We are inviting serious brands to join the work before the countdown.
+                Windburst Aerospace is working toward a record-breaking future
+                liquid rocket program, powered by custom engines and built from
+                the ground up. We are inviting serious brands to join the work
+                before the countdown.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 18 }}
@@ -212,11 +306,13 @@ export default function SponsorsPage() {
               OPEN FOR PARTNERSHIPS
             </span>
             <div className="hidden h-px w-full bg-white/10 sm:block" />
-            <span className="shrink-0 font-mono text-[10px] tracking-[0.18em] text-white/45">CUSTOM PROPULSION / REAL HARDWARE / LONG HORIZON</span>
+            <span className="shrink-0 font-mono text-[10px] tracking-[0.18em] text-white/45">
+              CUSTOM PROPULSION / REAL HARDWARE / LONG HORIZON
+            </span>
           </div>
         </div>
 
-         <section className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-36">
+        <section className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-36">
           <div className="grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-24">
             <Reveal>
               <span className="wb-kicker">WHY THIS / 02</span>
@@ -224,20 +320,32 @@ export default function SponsorsPage() {
                 Serious hardware needs serious backing.
               </h2>
               <p className="mt-6 max-w-md font-mono text-sm leading-7 text-muted-foreground">
-                Sponsorship is not a logo placement exercise. It is fuel for the materials, test equipment, machining, and launch work that move a young team from a promising design to a flight-ready system.
+                Sponsorship is not a logo placement exercise. It is fuel for the
+                materials, test equipment, machining, and launch work that move
+                a young team from a promising design to a flight-ready system.
               </p>
             </Reveal>
             <div className="grid gap-3 md:grid-cols-3">
               {reasons.map((reason, index) => {
                 const Icon = reason.icon;
                 return (
-                  <Reveal key={reason.title} delay={index * 0.08} className="wb-panel group relative border border-white/10 p-6 transition-colors hover:border-primary/45">
+                  <Reveal
+                    key={reason.title}
+                    delay={index * 0.08}
+                    className="wb-panel group relative border border-white/10 p-6 transition-colors hover:border-primary/45"
+                  >
                     <div className="mb-10 flex h-10 w-10 items-center justify-center border border-primary/35 bg-primary/10 text-primary transition-transform group-hover:-translate-y-1">
                       <Icon className="h-5 w-5" />
                     </div>
-                    <span className="font-mono text-[10px] tracking-[0.2em] text-white/35">0{index + 1}</span>
-                    <h3 className="mt-3 text-lg font-bold leading-tight text-white">{reason.title}</h3>
-                    <p className="mt-4 font-mono text-xs leading-6 text-muted-foreground">{reason.copy}</p>
+                    <span className="font-mono text-[10px] tracking-[0.2em] text-white/35">
+                      0{index + 1}
+                    </span>
+                    <h3 className="mt-3 text-lg font-bold leading-tight text-white">
+                      {reason.title}
+                    </h3>
+                    <p className="mt-4 font-mono text-xs leading-6 text-muted-foreground">
+                      {reason.copy}
+                    </p>
                   </Reveal>
                 );
               })}
@@ -253,13 +361,21 @@ export default function SponsorsPage() {
                 Make the ambitious part possible.
               </h2>
               <p className="mt-6 max-w-xl font-mono text-sm leading-7 text-muted-foreground">
-                Every partnership can be shaped around the work that makes the biggest difference to the next phase of the program. We will show you what is being built, why it matters, and where your support lands.
+                Every partnership can be shaped around the work that makes the
+                biggest difference to the next phase of the program. We will
+                show you what is being built, why it matters, and where your
+                support lands.
               </p>
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 {supportAreas.map((area) => (
-                  <div key={area} className="flex items-start gap-3 border-t border-white/10 pt-3">
+                  <div
+                    key={area}
+                    className="flex items-start gap-3 border-t border-white/10 pt-3"
+                  >
                     <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                    <span className="font-mono text-xs leading-5 text-white/72">{area}</span>
+                    <span className="font-mono text-xs leading-5 text-white/72">
+                      {area}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -270,10 +386,13 @@ export default function SponsorsPage() {
                 <div className="absolute right-0 top-0 h-24 w-24 border-l border-b border-accent/30" />
                 <div className="flex items-center justify-between border-b border-white/10 pb-5">
                   <span className="wb-kicker">PARTNER BRIEF</span>
-                  <span className="font-mono text-[10px] text-accent">WB / FUTURE-01</span>
+                  <span className="font-mono text-[10px] text-accent">
+                    WB / FUTURE-01
+                  </span>
                 </div>
                 <p className="mt-8 text-3xl font-bold leading-tight tracking-[-.04em] text-white">
-                  Help fund the road from custom engine to future record attempt.
+                  Help fund the road from custom engine to future record
+                  attempt.
                 </p>
                 <div className="mt-10 space-y-4 border-t border-white/10 pt-5">
                   <div className="flex items-center justify-between font-mono text-xs">
@@ -286,7 +405,9 @@ export default function SponsorsPage() {
                   </div>
                   <div className="flex items-center justify-between font-mono text-xs">
                     <span className="text-white/45">OUTCOME</span>
-                    <span className="max-w-[11rem] text-right text-white/75">FUTURE RECORD PROGRAM</span>
+                    <span className="max-w-[11rem] text-right text-white/75">
+                      FUTURE RECORD PROGRAM
+                    </span>
                   </div>
                 </div>
               </div>
@@ -294,89 +415,140 @@ export default function SponsorsPage() {
           </div>
         </section>
 
-         <section id="support-levels" className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-36">
+        <section
+          id="support-levels"
+          className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-36"
+        >
           <Reveal className="mx-auto max-w-3xl text-center">
-             <span className="wb-kicker">30K PROGRAM TARGET / 04</span>
+            <span className="wb-kicker">30K PROGRAM TARGET / 04</span>
             <h2 className="mt-5 text-4xl font-bold leading-[.95] tracking-[-.05em] text-white md:text-6xl">
-               Choose your level of lift.
+              Choose your level of lift.
             </h2>
             <p className="mx-auto mt-6 max-w-xl font-mono text-sm leading-7 text-muted-foreground">
-               Our long-term target is about 30K in funding for the custom liquid engine and the height-record flight program around it. Every level moves a different part of the machine forward.
+              Our long-term target is about 30K in funding for the custom liquid
+              engine and the height-record flight program around it. Every level
+              moves a different part of the machine forward.
             </p>
           </Reveal>
-           <div className="mt-12 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-             {sponsorTiers.map((tier, index) => {
-               const Icon = tier.icon;
-               return (
-                 <Reveal key={tier.name} delay={index * 0.08} className="h-full">
-                   <motion.div
-                     whileHover={{ y: -10, scale: 1.015 }}
-                     transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                     className={`group relative flex h-full min-h-[390px] flex-col overflow-hidden border bg-[#091722]/90 p-6 transition-colors duration-500 md:p-7 ${tier.border} ${tier.featured ? "shadow-[0_0_45px_rgba(24,210,244,.13)]" : ""}`}
-                   >
-                     {tier.featured && (
-                       <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-accent to-primary" />
-                     )}
-                     <div className="flex items-start justify-between">
-                       <div className={`flex h-11 w-11 items-center justify-center border bg-white/[.03] ${tier.border} ${tier.accent}`}>
-                         <Icon className="h-5 w-5" />
-                       </div>
-                       <span className={`font-mono text-[10px] tracking-[.2em] ${tier.accent}`}>{tier.featured ? "ANCHOR" : `0${index + 1}`}</span>
-                     </div>
-                     <div className="mt-10">
-                       <div className="font-mono text-[10px] tracking-[.22em] text-white/45">{tier.name} LEVEL</div>
-                       <div className={`mt-2 text-4xl font-bold tracking-[-.06em] ${tier.accent}`}>{tier.amount}</div>
-                     </div>
-                     <p className="mt-5 min-h-[72px] text-lg font-semibold leading-snug text-white">{tier.copy}</p>
-                     <div className="mt-auto space-y-3 border-t border-white/10 pt-5">
-                       {tier.benefits.map((benefit) => (
-                         <div key={benefit} className="flex items-start gap-2 font-mono text-[11px] leading-5 text-white/60">
-                           <Check className={`mt-0.5 h-3.5 w-3.5 shrink-0 ${tier.accent}`} />
-                           {benefit}
-                         </div>
-                       ))}
-                     </div>
-                   </motion.div>
-                 </Reveal>
-               );
-             })}
+          <div className="mt-12 grid gap-3 sm:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-5">
+            {sponsorTiers.map((tier, index) => {
+              const Icon = tier.icon;
+              return (
+                <Reveal key={tier.name} delay={index * 0.08} className="h-full">
+                  <motion.div
+                    whileHover={{ y: -10, scale: 1.015 }}
+                    transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                    className={`group relative flex h-full min-h-[390px] flex-col overflow-hidden border bg-[#091722]/90 p-6 transition-colors duration-500 md:p-7 ${tier.border} ${tier.featured ? "shadow-[0_0_45px_rgba(24,210,244,.13)]" : ""}`}
+                  >
+                    {tier.featured && (
+                      <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-accent to-primary" />
+                    )}
+                    <div className="flex items-start justify-between">
+                      <div
+                        className={`flex h-11 w-11 items-center justify-center border bg-white/[.03] ${tier.border} ${tier.accent}`}
+                      >
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <span
+                        className={`font-mono text-[10px] tracking-[.2em] ${tier.accent}`}
+                      >
+                        {tier.featured ? "ANCHOR" : `0${index + 1}`}
+                      </span>
+                    </div>
+                    <div className="mt-10">
+                      <div className="font-mono text-[10px] tracking-[.22em] text-white/45">
+                        {tier.name} LEVEL
+                      </div>
+                      <div
+                        className={`mt-2 text-4xl font-bold tracking-[-.06em] ${tier.accent}`}
+                      >
+                        {tier.amount}
+                      </div>
+                    </div>
+                    <p className="mt-5 min-h-[72px] text-lg font-semibold leading-snug text-white">
+                      {tier.copy}
+                    </p>
+                    <div className="mt-auto space-y-3 border-t border-white/10 pt-5">
+                      {tier.benefits.map((benefit) => (
+                        <div
+                          key={benefit}
+                          className="flex items-start gap-2 font-mono text-[11px] leading-5 text-white/60"
+                        >
+                          <Check
+                            className={`mt-0.5 h-3.5 w-3.5 shrink-0 ${tier.accent}`}
+                          />
+                          {benefit}
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                </Reveal>
+              );
+            })}
           </div>
-           <Reveal delay={0.18} className="mt-8 flex flex-col gap-4 border-t border-white/10 pt-5 font-mono text-[10px] tracking-[.16em] text-white/45 sm:flex-row sm:items-center sm:justify-between">
-             <span>PROGRAM TARGET / ABOUT 30K</span>
-             <span className="flex items-center gap-2 text-accent"><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" /> OPEN FOR ANCHOR PARTNERS</span>
-           </Reveal>
+          <Reveal
+            delay={0.18}
+            className="mt-8 flex flex-col gap-4 border-t border-white/10 pt-5 font-mono text-[10px] tracking-[.16em] text-white/45 sm:flex-row sm:items-center sm:justify-between"
+          >
+            <span>PROGRAM TARGET / ABOUT 30K</span>
+            <span className="flex items-center gap-2 text-accent">
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />{" "}
+              OPEN FOR ANCHOR PARTNERS
+            </span>
+          </Reveal>
         </section>
 
-         <section className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-36">
-           <Reveal className="mx-auto max-w-3xl text-center">
-             <span className="wb-kicker">WHAT PARTNERS RECEIVE / 05</span>
-             <h2 className="mt-5 text-4xl font-bold leading-[.95] tracking-[-.05em] text-white md:text-6xl">
-               A seat at the workbench.
-             </h2>
-             <p className="mx-auto mt-6 max-w-xl font-mono text-sm leading-7 text-muted-foreground">
-               We will build a partnership around your goals and our actual program milestones. No invented reach numbers. No borrowed logos. Just a direct line into an ambitious technical build.
-             </p>
-           </Reveal>
-           <div className="mt-14 grid gap-px border border-white/10 bg-white/10 md:grid-cols-3">
-             {[
-               ["VISIBILITY", "Brand presence across launch documentation, build updates, and selected team materials."],
-               ["ACCESS", "Direct conversations with the people designing, machining, testing, and learning from the hardware."],
-               ["STORY", "A grounded technical story your team can follow as the future liquid program takes shape."],
-             ].map(([title, copy], index) => (
-               <Reveal key={title} delay={index * 0.08} className="bg-[#091722] p-7 md:p-9">
-                 <div className="font-mono text-[10px] tracking-[0.2em] text-accent">0{index + 1} / {title}</div>
-                 <p className="mt-8 text-xl font-semibold leading-snug text-white">{copy}</p>
-               </Reveal>
-             ))}
-           </div>
-         </section>
+        <section className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-36">
+          <Reveal className="mx-auto max-w-3xl text-center">
+            <span className="wb-kicker">WHAT PARTNERS RECEIVE / 05</span>
+            <h2 className="mt-5 text-4xl font-bold leading-[.95] tracking-[-.05em] text-white md:text-6xl">
+              A seat at the workbench.
+            </h2>
+            <p className="mx-auto mt-6 max-w-xl font-mono text-sm leading-7 text-muted-foreground">
+              We will build a partnership around your goals and our actual
+              program milestones. No invented reach numbers. No borrowed logos.
+              Just a direct line into an ambitious technical build.
+            </p>
+          </Reveal>
+          <div className="mt-14 grid gap-px border border-white/10 bg-white/10 md:grid-cols-3">
+            {[
+              [
+                "VISIBILITY",
+                "Brand presence across launch documentation, build updates, and selected team materials.",
+              ],
+              [
+                "ACCESS",
+                "Direct conversations with the people designing, machining, testing, and learning from the hardware.",
+              ],
+              [
+                "STORY",
+                "A grounded technical story your team can follow as the future liquid program takes shape.",
+              ],
+            ].map(([title, copy], index) => (
+              <Reveal
+                key={title}
+                delay={index * 0.08}
+                className="bg-[#091722] p-7 md:p-9"
+              >
+                <div className="font-mono text-[10px] tracking-[0.2em] text-accent">
+                  0{index + 1} / {title}
+                </div>
+                <p className="mt-8 text-xl font-semibold leading-snug text-white">
+                  {copy}
+                </p>
+              </Reveal>
+            ))}
+          </div>
+        </section>
 
-         <section className="relative overflow-hidden border-t border-white/10 bg-primary px-5 py-20 text-primary-foreground md:px-8 md:py-28">
+        <section className="relative overflow-hidden border-t border-white/10 bg-primary px-5 py-20 text-primary-foreground md:px-8 md:py-28">
           <div className="absolute right-[-4rem] top-[-8rem] h-96 w-96 rounded-full border border-primary-foreground/20" />
           <div className="absolute right-[4rem] top-[-1rem] h-48 w-48 rounded-full border border-primary-foreground/15" />
           <div className="relative mx-auto flex max-w-7xl flex-col gap-9 md:flex-row md:items-end md:justify-between">
             <Reveal>
-               <span className="font-mono text-[10px] tracking-[0.24em] opacity-70">READY WHEN YOU ARE / 06</span>
+              <span className="font-mono text-[10px] tracking-[0.24em] opacity-70">
+                READY WHEN YOU ARE / 06
+              </span>
               <h2 className="mt-5 max-w-3xl text-5xl font-bold leading-[.9] tracking-[-.07em] md:text-8xl">
                 LET&apos;S TALK
                 <br />
@@ -385,7 +557,8 @@ export default function SponsorsPage() {
             </Reveal>
             <Reveal delay={0.1} className="max-w-sm">
               <p className="font-mono text-sm leading-7 opacity-75">
-                Tell us what your team wants to support and we will send the current program brief.
+                Tell us what your team wants to support and we will send the
+                current program brief.
               </p>
               <a
                 href="mailto:windburst.aerospace@gmail.com?subject=Windburst%20Aerospace%20sponsorship"
@@ -402,12 +575,26 @@ export default function SponsorsPage() {
 
       <footer className="border-t border-white/10 bg-[#040b11]">
         <div className="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-8 text-center md:flex-row md:items-center md:justify-between md:px-8 md:text-left">
-          <Link href="/" className="flex items-center justify-center gap-2 md:justify-start" data-testid="link-sponsor-footer-home">
+          <Link
+            href="/"
+            className="flex items-center justify-center gap-2 md:justify-start"
+            data-testid="link-sponsor-footer-home"
+          >
             <Rocket className="h-4 w-4 text-primary" />
-            <span className="font-bold tracking-[0.12em] text-white">WINDBURST AEROSPACE</span>
+            <span className="font-bold tracking-[0.12em] text-white">
+              WINDBURST AEROSPACE
+            </span>
           </Link>
-          <span className="font-mono text-[10px] tracking-[0.16em] text-muted-foreground">BUILDING TOWARD THE NEXT FLIGHT</span>
-          <a href="https://www.youtube.com/@WindBurstAero" target="_blank" rel="noreferrer" className="mx-auto text-muted-foreground transition-colors hover:text-primary md:mx-0" data-testid="link-sponsor-youtube">
+          <span className="font-mono text-[10px] tracking-[0.16em] text-muted-foreground">
+            BUILDING TOWARD THE NEXT FLIGHT
+          </span>
+          <a
+            href="https://www.youtube.com/@WindBurstAero"
+            target="_blank"
+            rel="noreferrer"
+            className="mx-auto text-muted-foreground transition-colors hover:text-primary md:mx-0"
+            data-testid="link-sponsor-youtube"
+          >
             <Youtube className="h-5 w-5" />
           </a>
         </div>

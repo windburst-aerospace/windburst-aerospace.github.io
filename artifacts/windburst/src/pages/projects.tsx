@@ -13,6 +13,8 @@ import {
   Zap,
   FlaskConical,
   Target,
+  ThermometerIcon,
+  StarIcon,
 } from "lucide-react";
 
 import railCad from "@assets/Screenshot_2026-06-20_130205_1782843628194.png";
@@ -90,7 +92,10 @@ const projects: Project[] = [
         img: propellantInputAssembly,
         caption: "Propellant input assembly — N₂O/IPA feed system",
       },
-      { img: engineFullCrossSection, caption: "Engine CAD — full cross-section view" },
+      {
+        img: engineFullCrossSection,
+        caption: "Engine CAD — full cross-section view",
+      },
     ],
     updates: [
       {
@@ -135,8 +140,7 @@ const projects: Project[] = [
     images: [
       {
         img: openRocket,
-        caption:
-          "OpenRocket simulation",
+        caption: "OpenRocket simulation",
       },
       { img: railCad, caption: "Launch rail / fin-can interface — CAD render" },
     ],
@@ -148,7 +152,7 @@ const projects: Project[] = [
     name: "HOTFIRE STAND",
     subtitle: "Static Test Infrastructure",
     status: "IN DEVELOPMENT",
-    icon: <Zap className="w-5 h-5" />,
+    icon: <ThermometerIcon className="w-5 h-5" />,
     description:
       "A dedicated static test stand for the our future engines. Will measure thrust via load cell, log chamber pressure, and allow safe hotfire testing before flight integration. Designed for outdoor use.",
     specs: [
@@ -176,6 +180,34 @@ const projects: Project[] = [
       {
         date: "May 28, 2026",
         text: "Safety protocol drafted. Remote fill and remote ignition required for all hotfires.",
+      },
+    ],
+  },
+  {
+    id: "proto-height",
+    name: "Liquid Propulsion Altitude Breaking Rocket",
+    subtitle: "Liquid Rocket Engine",
+    status: "PLANNING",
+    icon: <StarIcon className="w-5 h-5" />,
+    description:
+      "Our Future Goal — a liquid bipropellant rocket engine using an oxidiser and a fuel (usualy a hydrocarbon) the details still unknown as we havent decided the propellents but N2O has a high chance of being the oxidiser, our goal is to push this around 100k to 150kft to break the current ameteur record",
+    specs: [
+      { label: "Thrust", value: "Unknown" },
+      { label: "Propellants", value: "N₂O / ???" },
+      { label: "Chamber P.", value: "~50 bar???" },
+      { label: "Nozzle", value: "Converging-diverging (Hopefully)" },
+      { label: "Ignition", value: "Pyrotechnic (Probably)" },
+      { label: "Cooling", value: "Ablative (might have to do regen)" },
+    ],
+    images: [],
+    updates: [
+      {
+        date: "1 Aug, 2026",
+        text: "Basic Desgin ideas prototyped on open rocket and simulated in HalfCatSim",
+      },
+      {
+        date: "3 July, 2026",
+        text: "Idea Thought off",
       },
     ],
   },
