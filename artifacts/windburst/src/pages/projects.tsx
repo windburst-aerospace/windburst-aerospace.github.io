@@ -189,7 +189,7 @@ export default function Projects() {
   const [expanded, setExpanded] = useState<string | null>("lre-800");
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/30">
+    <div className="wb-atmosphere min-h-screen bg-background text-foreground font-sans selection:bg-primary/30">
       {/* Navbar */}
       <nav className="fixed top-0 w-full z-50 border-b border-white/5 bg-background/60 backdrop-blur-xl">
         <div className="container mx-auto px-5 h-16 md:h-20 flex items-center justify-between">
@@ -203,6 +203,13 @@ export default function Projects() {
             </span>
           </Link>
           <div className="flex items-center gap-4">
+            <Link
+              href="/sponsors"
+              className="font-mono text-[10px] tracking-widest text-accent transition-colors hover:text-primary sm:text-xs"
+              data-testid="link-projects-sponsor"
+            >
+              SPONSOR
+            </Link>
             <Link
               href="/"
               className="font-mono text-xs text-muted-foreground hover:text-white transition-colors flex items-center gap-1.5"

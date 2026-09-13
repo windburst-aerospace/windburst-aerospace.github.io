@@ -61,6 +61,7 @@ const navLinks = [
   { label: "GALLERY",  href: "#gallery" },
   { label: "TEAM",     href: "#team" },
   { label: "PROJECTS", href: "/projects", isPage: true },
+  { label: "SPONSOR",  href: "/sponsors", isPage: true },
   { label: "CONTACT",  href: "#contact" },
 ];
 
@@ -73,7 +74,7 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-hidden font-sans selection:bg-primary/30">
+    <div className="wb-atmosphere min-h-screen bg-background text-foreground overflow-hidden font-sans selection:bg-primary/30">
 
       {/* Navbar */}
       <nav className="fixed top-0 w-full z-50 border-b border-white/5 bg-background/60 backdrop-blur-xl">
@@ -193,9 +194,33 @@ export default function Home() {
                   OUR PROJECTS
                 </Button>
               </Link>
+              <Link href="/sponsors">
+                <Button size="lg" variant="outline" className="rounded-none w-full sm:w-auto h-12 md:h-14 px-7 font-mono text-xs tracking-widest border-accent/50 text-accent hover:bg-accent/10">
+                  SPONSOR THE PROGRAM
+                </Button>
+              </Link>
             </motion.div>
           </motion.div>
         </div>
+
+        <motion.aside
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ ...spring, delay: 0.55 }}
+          className="absolute right-5 top-1/2 z-20 hidden w-64 -translate-y-1/2 border border-white/10 bg-background/65 p-4 font-mono backdrop-blur-md lg:block"
+        >
+          <div className="mb-5 flex items-center justify-between border-b border-white/10 pb-3 text-[10px] tracking-widest">
+            <span className="text-primary">FLIGHT DESK</span>
+            <span className="flex items-center gap-2 text-accent"><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" /> LIVE BUILD</span>
+          </div>
+          <div className="space-y-4 text-[10px]">
+            <div className="flex justify-between"><span className="text-white/40">PROGRAM</span><span className="text-white">LRE-800</span></div>
+            <div className="flex justify-between"><span className="text-white/40">MODE</span><span className="text-primary">ENGINEERING</span></div>
+            <div className="flex justify-between"><span className="text-white/40">NEXT EVENT</span><span className="text-white">TEST STAND</span></div>
+          </div>
+          <div className="mt-5 h-1 overflow-hidden bg-white/10"><motion.div className="h-full w-2/3 bg-primary" animate={{ x: ["-100%", "150%"] }} transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }} /></div>
+          <p className="mt-3 text-[10px] leading-relaxed text-white/40">Real hardware. Real iteration. The next launch starts here.</p>
+        </motion.aside>
 
         <motion.div
           className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 text-muted-foreground"
