@@ -42,6 +42,46 @@ const supportAreas = [
   "Launch operations and flight analysis",
 ];
 
+const sponsorTiers = [
+  {
+    name: "BRONZE",
+    amount: "1K+",
+    icon: Rocket,
+    accent: "text-orange-300",
+    border: "border-orange-300/25",
+    copy: "Put your brand behind the next test, tool, and iteration.",
+    benefits: ["Build updates", "Sponsor roll call", "Digital partner badge"],
+  },
+  {
+    name: "SILVER",
+    amount: "3K+",
+    icon: Wrench,
+    accent: "text-slate-200",
+    border: "border-slate-200/25",
+    copy: "Help move a real hardware milestone from design to bench.",
+    benefits: ["Everything in Bronze", "Build photography", "Milestone briefings"],
+  },
+  {
+    name: "GOLD",
+    amount: "7.5K+",
+    icon: ShieldCheck,
+    accent: "text-yellow-300",
+    border: "border-yellow-300/35",
+    copy: "Back a full workstream across propulsion, testing, or recovery.",
+    benefits: ["Everything in Silver", "Featured partner presence", "Direct team updates"],
+  },
+  {
+    name: "DIAMOND",
+    amount: "15K+",
+    icon: Sparkles,
+    accent: "text-primary",
+    border: "border-primary/70",
+    copy: "Become an anchor partner for the future height-record liquid rocket program.",
+    benefits: ["Everything in Gold", "Anchor partner status", "Custom partnership plan"],
+    featured: true,
+  },
+];
+
 function Reveal({
   children,
   delay = 0,
@@ -176,7 +216,7 @@ export default function SponsorsPage() {
           </div>
         </div>
 
-        <section className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-36">
+         <section className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-36">
           <div className="grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-24">
             <Reveal>
               <span className="wb-kicker">WHY THIS / 02</span>
@@ -254,36 +294,89 @@ export default function SponsorsPage() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-36">
+         <section id="support-levels" className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-36">
           <Reveal className="mx-auto max-w-3xl text-center">
-            <span className="wb-kicker">WHAT PARTNERS RECEIVE / 04</span>
+             <span className="wb-kicker">30K PROGRAM TARGET / 04</span>
             <h2 className="mt-5 text-4xl font-bold leading-[.95] tracking-[-.05em] text-white md:text-6xl">
-              A seat at the workbench.
+               Choose your level of lift.
             </h2>
             <p className="mx-auto mt-6 max-w-xl font-mono text-sm leading-7 text-muted-foreground">
-              We will build a partnership around your goals and our actual program milestones. No invented reach numbers. No borrowed logos. Just a direct line into an ambitious technical build.
+               Our long-term target is about 30K in funding for the custom liquid engine and the height-record flight program around it. Every level moves a different part of the machine forward.
             </p>
           </Reveal>
-          <div className="mt-14 grid gap-px border border-white/10 bg-white/10 md:grid-cols-3">
-            {[
-              ["VISIBILITY", "Brand presence across launch documentation, build updates, and selected team materials."],
-              ["ACCESS", "Direct conversations with the people designing, machining, testing, and learning from the hardware."],
-              ["STORY", "A grounded technical story your team can follow as the future liquid program takes shape."],
-            ].map(([title, copy], index) => (
-              <Reveal key={title} delay={index * 0.08} className="bg-[#091722] p-7 md:p-9">
-                <div className="font-mono text-[10px] tracking-[0.2em] text-accent">0{index + 1} / {title}</div>
-                <p className="mt-8 text-xl font-semibold leading-snug text-white">{copy}</p>
-              </Reveal>
-            ))}
+           <div className="mt-12 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+             {sponsorTiers.map((tier, index) => {
+               const Icon = tier.icon;
+               return (
+                 <Reveal key={tier.name} delay={index * 0.08} className="h-full">
+                   <motion.div
+                     whileHover={{ y: -10, scale: 1.015 }}
+                     transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                     className={`group relative flex h-full min-h-[390px] flex-col overflow-hidden border bg-[#091722]/90 p-6 transition-colors duration-500 md:p-7 ${tier.border} ${tier.featured ? "shadow-[0_0_45px_rgba(24,210,244,.13)]" : ""}`}
+                   >
+                     {tier.featured && (
+                       <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-accent to-primary" />
+                     )}
+                     <div className="flex items-start justify-between">
+                       <div className={`flex h-11 w-11 items-center justify-center border bg-white/[.03] ${tier.border} ${tier.accent}`}>
+                         <Icon className="h-5 w-5" />
+                       </div>
+                       <span className={`font-mono text-[10px] tracking-[.2em] ${tier.accent}`}>{tier.featured ? "ANCHOR" : `0${index + 1}`}</span>
+                     </div>
+                     <div className="mt-10">
+                       <div className="font-mono text-[10px] tracking-[.22em] text-white/45">{tier.name} LEVEL</div>
+                       <div className={`mt-2 text-4xl font-bold tracking-[-.06em] ${tier.accent}`}>{tier.amount}</div>
+                     </div>
+                     <p className="mt-5 min-h-[72px] text-lg font-semibold leading-snug text-white">{tier.copy}</p>
+                     <div className="mt-auto space-y-3 border-t border-white/10 pt-5">
+                       {tier.benefits.map((benefit) => (
+                         <div key={benefit} className="flex items-start gap-2 font-mono text-[11px] leading-5 text-white/60">
+                           <Check className={`mt-0.5 h-3.5 w-3.5 shrink-0 ${tier.accent}`} />
+                           {benefit}
+                         </div>
+                       ))}
+                     </div>
+                   </motion.div>
+                 </Reveal>
+               );
+             })}
           </div>
+           <Reveal delay={0.18} className="mt-8 flex flex-col gap-4 border-t border-white/10 pt-5 font-mono text-[10px] tracking-[.16em] text-white/45 sm:flex-row sm:items-center sm:justify-between">
+             <span>PROGRAM TARGET / ABOUT 30K</span>
+             <span className="flex items-center gap-2 text-accent"><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" /> OPEN FOR ANCHOR PARTNERS</span>
+           </Reveal>
         </section>
 
-        <section className="relative overflow-hidden border-t border-white/10 bg-primary px-5 py-20 text-primary-foreground md:px-8 md:py-28">
+         <section className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-36">
+           <Reveal className="mx-auto max-w-3xl text-center">
+             <span className="wb-kicker">WHAT PARTNERS RECEIVE / 05</span>
+             <h2 className="mt-5 text-4xl font-bold leading-[.95] tracking-[-.05em] text-white md:text-6xl">
+               A seat at the workbench.
+             </h2>
+             <p className="mx-auto mt-6 max-w-xl font-mono text-sm leading-7 text-muted-foreground">
+               We will build a partnership around your goals and our actual program milestones. No invented reach numbers. No borrowed logos. Just a direct line into an ambitious technical build.
+             </p>
+           </Reveal>
+           <div className="mt-14 grid gap-px border border-white/10 bg-white/10 md:grid-cols-3">
+             {[
+               ["VISIBILITY", "Brand presence across launch documentation, build updates, and selected team materials."],
+               ["ACCESS", "Direct conversations with the people designing, machining, testing, and learning from the hardware."],
+               ["STORY", "A grounded technical story your team can follow as the future liquid program takes shape."],
+             ].map(([title, copy], index) => (
+               <Reveal key={title} delay={index * 0.08} className="bg-[#091722] p-7 md:p-9">
+                 <div className="font-mono text-[10px] tracking-[0.2em] text-accent">0{index + 1} / {title}</div>
+                 <p className="mt-8 text-xl font-semibold leading-snug text-white">{copy}</p>
+               </Reveal>
+             ))}
+           </div>
+         </section>
+
+         <section className="relative overflow-hidden border-t border-white/10 bg-primary px-5 py-20 text-primary-foreground md:px-8 md:py-28">
           <div className="absolute right-[-4rem] top-[-8rem] h-96 w-96 rounded-full border border-primary-foreground/20" />
           <div className="absolute right-[4rem] top-[-1rem] h-48 w-48 rounded-full border border-primary-foreground/15" />
           <div className="relative mx-auto flex max-w-7xl flex-col gap-9 md:flex-row md:items-end md:justify-between">
             <Reveal>
-              <span className="font-mono text-[10px] tracking-[0.24em] opacity-70">READY WHEN YOU ARE / 05</span>
+               <span className="font-mono text-[10px] tracking-[0.24em] opacity-70">READY WHEN YOU ARE / 06</span>
               <h2 className="mt-5 max-w-3xl text-5xl font-bold leading-[.9] tracking-[-.07em] md:text-8xl">
                 LET&apos;S TALK
                 <br />

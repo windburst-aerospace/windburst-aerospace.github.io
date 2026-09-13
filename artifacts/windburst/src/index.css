@@ -248,6 +248,41 @@
   to { transform: translateX(-50%); }
 }
 
+@keyframes wb-nav-in {
+  from { opacity: 0; transform: translateY(-18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes wb-orbit {
+  0%, 100% { transform: translate3d(-2%, -1%, 0) scale(1); opacity: .28; }
+  50% { transform: translate3d(2%, 1%, 0) scale(1.08); opacity: .55; }
+}
+
+@keyframes wb-section-glow {
+  0%, 100% { opacity: .12; transform: translate3d(-2%, 0, 0) scale(.98); }
+  50% { opacity: .28; transform: translate3d(2%, -1%, 0) scale(1.02); }
+}
+
+@keyframes wb-panel-float {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -4px, 0); }
+}
+
+@keyframes wb-border-sweep {
+  0% { transform: translateX(-110%) skewX(-18deg); }
+  100% { transform: translateX(520%) skewX(-18deg); }
+}
+
+@keyframes wb-kicker-scan {
+  0%, 100% { opacity: .35; transform: scaleX(.7); transform-origin: left; }
+  50% { opacity: 1; transform: scaleX(1); transform-origin: left; }
+}
+
+@keyframes wb-button-glow {
+  0%, 100% { box-shadow: 0 0 0 rgba(31, 211, 244, 0); }
+  50% { box-shadow: 0 0 28px rgba(31, 211, 244, .16); }
+}
+
 .wb-atmosphere {
   position: relative;
   isolation: isolate;
@@ -262,6 +297,36 @@
   opacity: .16;
   background: repeating-linear-gradient(0deg, transparent 0 5px, rgba(105, 223, 240, .06) 6px, transparent 7px);
   animation: scan-drift 9s ease-in-out infinite alternate;
+}
+
+.wb-atmosphere::after {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 12% 22%, rgba(22, 185, 232, .13), transparent 18rem),
+    radial-gradient(circle at 86% 62%, rgba(255, 116, 43, .09), transparent 21rem);
+  animation: wb-orbit 18s ease-in-out infinite;
+}
+
+.wb-atmosphere main > section {
+  isolation: isolate;
+}
+
+.wb-atmosphere main > section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(circle at 82% 18%, rgba(26, 194, 230, .12), transparent 25rem);
+  animation: wb-section-glow 11s ease-in-out infinite;
+}
+
+.wb-atmosphere nav {
+  animation: wb-nav-in .8s cubic-bezier(.2, .8, .2, 1) both;
 }
 
 .wb-noise::after {
@@ -285,6 +350,55 @@
 .wb-panel {
   background: linear-gradient(135deg, rgba(12, 29, 43, .88), rgba(5, 12, 20, .78));
   box-shadow: 0 20px 60px rgba(0, 0, 0, .22);
+}
+
+.wb-atmosphere .wb-panel {
+  position: relative;
+  overflow: hidden;
+  animation: wb-panel-float 8s ease-in-out infinite;
+}
+
+.wb-atmosphere .wb-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 -35%;
+  width: 28%;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(124, 235, 255, .1), transparent);
+  animation: wb-border-sweep 7s ease-in-out infinite;
+}
+
+.wb-atmosphere .wb-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+}
+
+.wb-atmosphere .wb-kicker::after {
+  content: "";
+  display: block;
+  width: 1.8rem;
+  height: 1px;
+  background: currentColor;
+  animation: wb-kicker-scan 2.8s ease-in-out infinite;
+}
+
+.wb-atmosphere a,
+.wb-atmosphere button {
+  will-change: transform;
+}
+
+.wb-atmosphere a.bg-primary,
+.wb-atmosphere button.bg-primary {
+  animation: wb-button-glow 4.5s ease-in-out infinite;
+}
+
+.wb-atmosphere img {
+  transition: transform .8s cubic-bezier(.2, .8, .2, 1), filter .8s ease;
+}
+
+.wb-atmosphere img:hover {
+  filter: saturate(1.08) contrast(1.04);
 }
 
 @media (prefers-reduced-motion: reduce) {

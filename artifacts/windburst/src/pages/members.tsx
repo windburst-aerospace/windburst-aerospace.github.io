@@ -36,7 +36,7 @@ function LoginForm() {
   };
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center px-4">
+    <div className="wb-atmosphere min-h-screen bg-background flex items-center justify-center px-4">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
@@ -200,7 +200,7 @@ function Dashboard() {
   const filtered = activeCategory === "All" ? docs : docs.filter((d) => d.category === activeCategory);
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans">
+    <div className="wb-atmosphere min-h-screen bg-background text-foreground font-sans">
       {/* Header */}
       <header className="fixed top-0 w-full z-50 border-b border-white/5 bg-background/80 backdrop-blur-md">
         <div className="container mx-auto px-6 h-16 flex items-center justify-between">
@@ -324,7 +324,7 @@ export default function MembersPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
+      <div className="wb-atmosphere min-h-screen bg-background flex items-center justify-center">
         <div className="text-muted-foreground font-mono text-sm">LOADING...</div>
       </div>
     );
