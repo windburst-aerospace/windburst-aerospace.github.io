@@ -17,9 +17,9 @@ import {
 
 import railCad from "@assets/Screenshot_2026-06-20_130205_1782843628194.png";
 import openRocket from "@assets/Screenshot 2026-06-30 201305.png";
-import cadModel from "@assets/Screenshot_2026-06-14_232113_1781629243088.png";
 import combustionChamberCrossSection from "@assets/image_1789301246903.png";
 import engineFullCrossSection from "@assets/image_1789301426726.png";
+import propellantInputAssembly from "@assets/image_1789301511616.png";
 import rocketFlight from "@assets/Screenshot_20260616_182728_Gallery_upscayl_4x_high-fidelity-4x_1781631734645.png";
 
 const spring = { type: "spring" as const, stiffness: 80, damping: 20 };
@@ -87,7 +87,7 @@ const projects: Project[] = [
         caption: "Combustion chamber cross-section — valve and injector layout",
       },
       {
-        img: cadModel,
+        img: propellantInputAssembly,
         caption: "Propellant input assembly — N₂O/IPA feed system",
       },
       { img: engineFullCrossSection, caption: "Engine CAD — full cross-section view" },
