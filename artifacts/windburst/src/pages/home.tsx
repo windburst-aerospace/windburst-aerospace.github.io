@@ -110,10 +110,10 @@ const team = [
   {
     name: "Krishna Pandey",
     avatar: kpAvatar,
-    role: "Co-founder · Structures & Flight",
+    role: "Founder · Propulsion, Systems & Flight",
     callsign: "WB / KP",
-    bio: "Krishna focuses on the structures and flight side of the program, connecting airframe decisions, recovery planning, and the details that make a launch day work.",
-    focus: ["Airframe design", "Recovery systems", "Flight operations"],
+    bio: "Krishna leads Windburst across the program, connecting propulsion, structures, flight operations, recovery, and the decisions that keep the whole build moving.",
+    focus: ["Program leadership", "Propulsion & systems", "Flight operations"],
   },
   {
     name: "Maxmillan Mokrzanski",
@@ -693,7 +693,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="text-[10px] font-mono text-primary tracking-widest mb-1">
-                  CO-FOUNDER
+                  {member.role.split(" · ")[0].toUpperCase()}
                 </div>
                 <h4 className="text-base md:text-lg font-bold text-white tracking-tight">
                   {member.name}
