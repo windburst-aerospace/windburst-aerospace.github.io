@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   motion,
   useScroll,
@@ -15,6 +15,12 @@ import {
   ZoomIn,
   Menu,
   ChevronDown,
+  Instagram,
+  Linkedin,
+  MessageCircle,
+  Music2,
+  ExternalLink,
+  Play,
 } from "lucide-react";
 import { Link } from "wouter";
 
@@ -93,9 +99,30 @@ const gallery = [
 ];
 
 const team = [
-  { name: "Siddarth Assudani", avatar: sidAvatar },
-  { name: "Krishna Pandey", avatar: kpAvatar },
-  { name: "Maxmillan Mokrzanski", avatar: maxAvatar },
+  {
+    name: "Siddarth Assudani",
+    avatar: sidAvatar,
+    role: "Co-founder · Propulsion & Systems",
+    callsign: "WB / SID",
+    bio: "Siddarth drives the propulsion architecture and systems thinking behind Windburst, turning ambitious engine ideas into testable hardware and repeatable processes.",
+    focus: ["Liquid propulsion", "Systems engineering", "Test planning"],
+  },
+  {
+    name: "Krishna Pandey",
+    avatar: kpAvatar,
+    role: "Co-founder · Structures & Flight",
+    callsign: "WB / KP",
+    bio: "Krishna focuses on the structures and flight side of the program, connecting airframe decisions, recovery planning, and the details that make a launch day work.",
+    focus: ["Airframe design", "Recovery systems", "Flight operations"],
+  },
+  {
+    name: "Maxmillan Mokrzanski",
+    avatar: maxAvatar,
+    role: "Co-founder · CAD & Integration",
+    callsign: "WB / MAX",
+    bio: "Maxmillan brings the build together through CAD, component integration, and the practical shop decisions that turn a clean model into hardware you can hold.",
+    focus: ["CAD development", "Hardware integration", "Manufacturing"],
+  },
 ];
 
 const navLinks = [
@@ -104,7 +131,17 @@ const navLinks = [
   { label: "TEAM", href: "#team" },
   { label: "PROJECTS", href: "/projects", isPage: true },
   { label: "SPONSOR", href: "/sponsors", isPage: true },
+  { label: "WATCH", href: "https://www.youtube.com/@WindBurstAero", external: true },
   { label: "CONTACT", href: "#contact" },
+];
+
+const socialLinks = [
+  { label: "YouTube", icon: Youtube, href: "https://www.youtube.com/@WindBurstAero", live: true, accent: "hover:text-red-400" },
+  { label: "Instagram", icon: Instagram, href: "#", accent: "hover:text-pink-300" },
+  { label: "TikTok", icon: Music2, href: "#", accent: "hover:text-cyan-300" },
+  { label: "X", icon: X, href: "#", accent: "hover:text-white" },
+  { label: "LinkedIn", icon: Linkedin, href: "#", accent: "hover:text-sky-300" },
+  { label: "Discord", icon: MessageCircle, href: "#", accent: "hover:text-violet-300" },
 ];
 
 export default function Home() {
@@ -117,7 +154,17 @@ export default function Home() {
     label: string;
     caption: string;
   }>(null);
+  const [selectedMember, setSelectedMember] = useState<(typeof team)[number] | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (!selectedMember) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setSelectedMember(null);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedMember]);
 
   return (
     <div className="wb-atmosphere min-h-screen bg-background text-foreground overflow-hidden font-sans selection:bg-primary/30">
@@ -146,6 +193,8 @@ export default function Home() {
                 <a
                   key={l.label}
                   href={l.href}
+                  target={l.external ? "_blank" : undefined}
+                  rel={l.external ? "noreferrer" : undefined}
                   className="hover:text-primary transition-colors duration-200"
                 >
                   {l.label}
@@ -159,9 +208,14 @@ export default function Home() {
               href="https://www.youtube.com/@WindBurstAero"
               target="_blank"
               rel="noreferrer"
-              className="text-muted-foreground hover:text-red-500 transition-colors duration-200"
+              aria-label="Watch Windburst Aerospace on YouTube"
+              title="Watch the build on YouTube"
+              className="group flex items-center gap-2 text-muted-foreground transition-colors duration-200 hover:text-red-400"
             >
               <Youtube className="w-7 h-7 md:w-8 md:h-8" />
+              <span className="hidden font-mono text-[10px] tracking-[0.16em] text-red-300/80 transition-colors group-hover:text-red-300 lg:inline">
+                WATCH
+              </span>
             </a>
             <a
               href={import.meta.env.VITE_MEMBERS_URL ?? "/members"}
@@ -209,6 +263,8 @@ export default function Home() {
                     <a
                       key={l.label}
                       href={l.href}
+                      target={l.external ? "_blank" : undefined}
+                      rel={l.external ? "noreferrer" : undefined}
                       className="py-3 font-mono text-sm text-muted-foreground hover:text-primary transition-colors border-b border-white/5"
                       onClick={() => setMenuOpen(false)}
                     >
@@ -262,7 +318,7 @@ export default function Home() {
             </motion.div>
             <motion.h1
               variants={slideUp}
-              className="text-5xl sm:text-7xl md:text-8xl font-bold text-white tracking-tighter leading-[0.9] mb-6"
+              className="wb-rizz-title text-5xl font-bold tracking-tighter leading-[0.9] text-white sm:text-7xl md:text-8xl mb-6"
             >
               WINDBURST
               <br />
@@ -465,6 +521,44 @@ export default function Home() {
         </div>
       </section>
 
+      {/* YouTube / build feed */}
+      <section id="watch" className="relative overflow-hidden border-y border-white/5 bg-[#07131e] py-16 md:py-24">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_50%,rgba(255,55,80,.16),transparent_22rem)] pointer-events-none" />
+        <div className="container relative z-10 mx-auto px-5">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={spring}
+            className="flex flex-col gap-8 border border-red-400/25 bg-black/35 p-6 md:flex-row md:items-center md:justify-between md:p-10"
+          >
+            <div className="max-w-2xl">
+              <div className="mb-4 flex items-center gap-3 font-mono text-[10px] tracking-[0.22em] text-red-300">
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-red-400" />
+                BUILD FEED / YOUTUBE
+              </div>
+              <h2 className="text-3xl font-bold tracking-[-.05em] text-white md:text-5xl">
+                Watch the hardware get real.
+              </h2>
+              <p className="mt-4 max-w-xl font-mono text-sm leading-7 text-muted-foreground">
+                Launch footage, test-stand progress, CAD walkthroughs, and the
+                decisions behind each Windburst build live on our channel.
+              </p>
+            </div>
+            <a
+              href="https://www.youtube.com/@WindBurstAero"
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex min-h-14 shrink-0 items-center justify-center gap-3 bg-red-500 px-6 font-mono text-xs font-bold tracking-[0.14em] text-white transition-all duration-300 hover:-translate-y-1 hover:bg-red-400 hover:shadow-[0_0_35px_rgba(248,113,113,.28)]"
+            >
+              <Play className="h-4 w-4 fill-current" />
+              OPEN THE CHANNEL
+              <ExternalLink className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Gallery */}
       <section
         id="gallery"
@@ -577,14 +671,18 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
             {team.map((member, i) => (
-              <motion.div
+              <motion.button
+                type="button"
                 key={i}
                 initial={{ opacity: 0, y: 40, scale: 0.94 }}
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ ...spring, delay: i * 0.13 }}
-                whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                className="group relative border border-white/10 bg-black/40 backdrop-blur-sm p-6 md:p-8 hover:bg-white/5 transition-colors duration-300"
+                whileHover={{ y: -10, rotateX: 2, rotateY: -2, transition: { duration: 0.25 } }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => setSelectedMember(member)}
+                className="wb-rizz-card group relative border border-white/10 bg-black/40 p-6 text-left backdrop-blur-sm transition-colors duration-300 hover:bg-white/5 md:p-8"
+                aria-label={`Open profile for ${member.name}`}
               >
                 <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-primary to-cyan-400 scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
                 <div className="w-20 h-20 md:w-24 md:h-24 mb-5 overflow-hidden bg-black border border-white/10">
@@ -600,7 +698,10 @@ export default function Home() {
                 <h4 className="text-base md:text-lg font-bold text-white tracking-tight">
                   {member.name}
                 </h4>
-              </motion.div>
+                <div className="mt-4 flex items-center gap-2 font-mono text-[10px] tracking-[0.16em] text-primary/80">
+                  VIEW PROFILE <ChevronRight className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-1" />
+                </div>
+              </motion.button>
             ))}
           </div>
         </div>
@@ -676,6 +777,38 @@ export default function Home() {
               <Mail className="w-4 h-4" />
               windburst.aerospace@gmail.com
             </a>
+            <div className="mt-10 border-t border-white/10 pt-7 text-left">
+              <div className="mb-4 flex items-center justify-between gap-4">
+                <span className="font-mono text-[10px] tracking-[0.2em] text-primary">
+                  FIND US ONLINE
+                </span>
+                <span className="font-mono text-[10px] tracking-[0.14em] text-white/35">
+                  LINKS BEING WIRED
+                </span>
+              </div>
+              <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+                {socialLinks.map((social) => {
+                  const Icon = social.icon;
+                  return (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      target={social.live ? "_blank" : undefined}
+                      rel={social.live ? "noreferrer" : undefined}
+                      onClick={(event) => {
+                        if (!social.live) event.preventDefault();
+                      }}
+                      className={`flex items-center gap-2 border border-white/10 px-3 py-3 font-mono text-[10px] tracking-[0.12em] text-white/60 transition-all duration-300 hover:-translate-y-1 hover:border-white/25 ${social.accent}`}
+                      aria-label={social.live ? `Open Windburst ${social.label}` : `${social.label} link placeholder`}
+                    >
+                      <Icon className="h-4 w-4" />
+                      {social.label}
+                      {!social.live && <span className="ml-auto text-[8px] text-white/30">SOON</span>}
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -702,6 +835,84 @@ export default function Home() {
           </a>
         </div>
       </footer>
+
+      {/* Team member profile modal */}
+      <AnimatePresence>
+        {selectedMember && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[110] flex items-center justify-center bg-black/80 p-4 backdrop-blur-md"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="team-member-name"
+            onClick={() => setSelectedMember(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 28, scale: 0.94, rotateX: 4 }}
+              animate={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
+              exit={{ opacity: 0, y: 18, scale: 0.96 }}
+              transition={springFast}
+              className="wb-rizz-card relative w-full max-w-2xl overflow-hidden border border-primary/30 bg-[#07131e] p-6 shadow-[0_0_80px_rgba(25,208,242,.16)] md:p-9"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-accent to-primary" />
+              <button
+                type="button"
+                onClick={() => setSelectedMember(null)}
+                className="absolute right-4 top-4 p-2 text-white/45 transition-colors hover:text-white"
+                aria-label="Close team member profile"
+              >
+                <X className="h-5 w-5" />
+              </button>
+              <div className="grid gap-7 md:grid-cols-[150px_1fr] md:items-start">
+                <div>
+                  <div className="overflow-hidden border border-white/15 bg-black">
+                    <img
+                      src={selectedMember.avatar}
+                      alt={selectedMember.name}
+                      className="aspect-[4/5] w-full object-cover object-top"
+                    />
+                  </div>
+                  <div className="mt-3 font-mono text-[10px] tracking-[0.18em] text-primary">
+                    {selectedMember.callsign}
+                  </div>
+                </div>
+                <div className="pr-5">
+                  <div className="font-mono text-[10px] tracking-[0.2em] text-accent">
+                    WIND BURST CREW / PROFILE
+                  </div>
+                  <h3 id="team-member-name" className="mt-3 text-3xl font-bold tracking-[-.05em] text-white md:text-5xl">
+                    {selectedMember.name}
+                  </h3>
+                  <p className="mt-2 font-mono text-xs tracking-[0.12em] text-primary">
+                    {selectedMember.role}
+                  </p>
+                  <p className="mt-6 text-sm leading-7 text-white/70">
+                    {selectedMember.bio}
+                  </p>
+                  <div className="mt-7 border-t border-white/10 pt-5">
+                    <div className="mb-3 font-mono text-[10px] tracking-[0.18em] text-white/40">
+                      CURRENT FOCUS
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedMember.focus.map((item) => (
+                        <span
+                          key={item}
+                          className="border border-primary/25 bg-primary/5 px-3 py-2 font-mono text-[10px] tracking-[0.1em] text-white/70"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Lightbox */}
       <AnimatePresence>

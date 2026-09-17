@@ -283,6 +283,23 @@
   50% { box-shadow: 0 0 28px rgba(31, 211, 244, .16); }
 }
 
+@keyframes wb-rizz-breathe {
+  0%, 100% { box-shadow: 0 18px 60px rgba(0, 0, 0, .2), 0 0 0 rgba(31, 211, 244, 0); }
+  50% { box-shadow: 0 24px 70px rgba(0, 0, 0, .28), 0 0 32px rgba(31, 211, 244, .1); }
+}
+
+@keyframes wb-rizz-sweep {
+  0% { transform: translateX(-130%) skewX(-18deg); opacity: 0; }
+  18%, 72% { opacity: 1; }
+  100% { transform: translateX(500%) skewX(-18deg); opacity: 0; }
+}
+
+@keyframes wb-rizz-flicker {
+  0%, 100% { text-shadow: 0 0 0 rgba(31, 211, 244, 0); }
+  48% { text-shadow: 0 0 18px rgba(31, 211, 244, .28); }
+  52% { text-shadow: 0 0 5px rgba(255, 116, 43, .24); }
+}
+
 .wb-atmosphere {
   position: relative;
   isolation: isolate;
@@ -312,6 +329,7 @@
 }
 
 .wb-atmosphere main > section {
+  position: relative;
   isolation: isolate;
 }
 
@@ -399,6 +417,35 @@
 
 .wb-atmosphere img:hover {
   filter: saturate(1.08) contrast(1.04);
+}
+
+.wb-rizz-title {
+  animation: wb-rizz-flicker 4.8s ease-in-out infinite;
+}
+
+.wb-rizz-card {
+  transform-style: preserve-3d;
+  animation: wb-rizz-breathe 6s ease-in-out infinite;
+}
+
+.wb-rizz-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 -28%;
+  z-index: 0;
+  width: 22%;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(120, 237, 255, .18), transparent);
+  animation: wb-rizz-sweep 6.5s ease-in-out infinite;
+}
+
+.wb-rizz-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.wb-rizz-card:hover {
+  border-color: rgba(31, 211, 244, .52);
 }
 
 @media (prefers-reduced-motion: reduce) {
