@@ -107,42 +107,42 @@ const gallery = [
   {
     img: machinedPlateStack,
     label: "BUILD — MACHINED HARDWARE",
-    caption: "Machined cylindrical plate stack with threaded interfaces",
+    caption: "Injector plate interfaces",
   },
   {
     img: radioController,
     label: "BUILD — FLIGHT CONTROLS",
-    caption: "FlySky radio controller for the flight electronics workflow",
+    caption: "FlySky radio controller for the GSE electronics",
   },
   {
     img: injectorPlate,
     label: "BUILD — INJECTOR PLATE",
-    caption: "Machined plate with the latest port pattern",
+    caption: "Machined Injector plate with scrintle",
   },
   {
     img: feedComponent,
     label: "BUILD — FEED COMPONENT",
-    caption: "Machined cylindrical feed component with threaded connection",
+    caption: "Stainless Steel angle Cartridge Ingitor",
   },
   {
     img: cylindricalAssembly,
     label: "BUILD — CYLINDRICAL ASSEMBLY",
-    caption: "Cylindrical hardware assembly with perimeter fasteners",
+    caption: "Engine Casing",
   },
   {
     img: hardwareDetailOne,
     label: "BUILD — HARDWARE DETAIL",
-    caption: "Recent workshop hardware from the current build",
+    caption: "Stacked Tank Piston",
   },
   {
     img: hardwareDetailTwo,
     label: "BUILD — HARDWARE DETAIL",
-    caption: "Additional machined hardware from the current build",
+    caption: "Nozzle Retainment",
   },
   {
     img: workshopHardware,
     label: "BUILD — WORKSHOP",
-    caption: "Latest workshop hardware documentation",
+    caption: "CHAMBERSAFE Ablative",
   },
 ];
 

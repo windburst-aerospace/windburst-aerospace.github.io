@@ -12,7 +12,6 @@ import {
   Calendar,
   Zap,
   FlaskConical,
-  Target,
   ThermometerIcon,
   StarIcon,
 } from "lucide-react";
@@ -104,6 +103,34 @@ const projects: Project[] = [
         img: engineFullCrossSection,
         caption: "Engine CAD — full cross-section view",
       },
+      {
+        img: machinedPlateStack,
+        caption: "Machined cylindrical plate stack with threaded interfaces",
+      },
+      {
+        img: injectorPlate,
+        caption: "Machined Injector plate with scrintle",
+      },
+      {
+        img: feedComponent,
+        caption: "Stainless Steel angle Cartridge Ingitor",
+      },
+      {
+        img: cylindricalAssembly,
+        caption: "Engine Casing",
+      },
+      {
+        img: hardwareDetailOne,
+        caption: "Stacked Tank Piston",
+      },
+      {
+        img: hardwareDetailTwo,
+        caption: "Nozzle Retainment",
+      },
+      {
+        img: workshopHardware,
+        caption: "CHAMBERSAFE Ablative",
+      },
     ],
     updates: [
       {
@@ -125,6 +152,10 @@ const projects: Project[] = [
       {
         date: "Jun 14, 2026",
         text: "Completed full propellant input CAD including oxidizer and fuel feed lines.",
+      },
+      {
+        date: "25 Sept, 2026",
+        text: "Added the latest machined engine hardware to the L-class liquid engine build log.",
       },
     ],
   },
@@ -152,7 +183,9 @@ const projects: Project[] = [
       },
       { img: railCad, caption: "Launch rail / fin-can interface — CAD render" },
     ],
-    updates: [{ date: "Jun 15, 2026", text: "Desgin Partially completed" }],
+    updates: [
+      { date: "Jun 15, 2026", text: "Desgin Partially completed" },
+    ],
   },
 
   {
@@ -171,7 +204,12 @@ const projects: Project[] = [
       { label: "Material", value: "Aluminum 6061-T6 assembly" },
       { label: "Propellant", value: "Remote-fill, remote-ignite" },
     ],
-    images: [],
+    images: [
+      {
+        img: radioController,
+        caption: "FlySky radio controller for the GSE electronics",
+      },
+    ],
     updates: [
       {
         date: "Aug 31, 2026",
@@ -188,61 +226,6 @@ const projects: Project[] = [
       {
         date: "May 28, 2026",
         text: "Safety protocol drafted. Remote fill and remote ignition required for all hotfires.",
-      },
-    ],
-  },
-  {
-    id: "recent-hardware",
-    name: "RECENT HARDWARE BUILD",
-    subtitle: "Machined Propulsion & Controls",
-    status: "ACTIVE",
-    icon: <Target className="w-5 h-5" />,
-    description:
-      "A photo log of the latest physical build work: machined plates, cylindrical assemblies, threaded interfaces, and the radio hardware supporting the wider Windburst programme.",
-    specs: [
-      { label: "Focus", value: "Machining + controls" },
-      { label: "Status", value: "Build documentation" },
-      { label: "Hardware", value: "Plates + assemblies" },
-      { label: "Electronics", value: "Radio control" },
-    ],
-    images: [
-      {
-        img: machinedPlateStack,
-        caption: "Machined cylindrical plate stack with threaded interfaces",
-      },
-      {
-        img: radioController,
-        caption: "FlySky radio controller for the flight electronics workflow",
-      },
-      {
-        img: injectorPlate,
-        caption: "Machined plate with the latest port pattern",
-      },
-      {
-        img: feedComponent,
-        caption: "Machined cylindrical feed component with threaded connection",
-      },
-      {
-        img: cylindricalAssembly,
-        caption: "Cylindrical hardware assembly with perimeter fasteners",
-      },
-      {
-        img: hardwareDetailOne,
-        caption: "Recent workshop hardware from the current build",
-      },
-      {
-        img: hardwareDetailTwo,
-        caption: "Additional machined hardware from the current build",
-      },
-      {
-        img: workshopHardware,
-        caption: "Latest workshop hardware documentation",
-      },
-    ],
-    updates: [
-      {
-        date: "25 Sept, 2026",
-        text: "Added the latest machined hardware and flight-control photos to the build log.",
       },
     ],
   },
@@ -281,7 +264,7 @@ export default function Projects() {
     img: string;
     caption: string;
   } | null>(null);
-  const [expanded, setExpanded] = useState<string | null>("lre-800");
+  const [expanded, setExpanded] = useState<string | null>("proto-l");
 
   return (
     <div className="wb-atmosphere min-h-screen bg-background text-foreground font-sans selection:bg-primary/30">
