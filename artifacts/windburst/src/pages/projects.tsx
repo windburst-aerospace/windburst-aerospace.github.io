@@ -23,6 +23,14 @@ import combustionChamberCrossSection from "@assets/image_1789301246903.png";
 import engineFullCrossSection from "@assets/image_1789301426726.png";
 import propellantInputAssembly from "@assets/image_1789301511616.png";
 import rocketFlight from "@assets/Screenshot_20260616_182728_Gallery_upscayl_4x_high-fidelity-4x_1781631734645.png";
+import machinedPlateStack from "@assets/221321231231_1790359391841.jpeg";
+import radioController from "@assets/WhatsApp_Image_2026-09-25_at_18.42.21_1790359391842.jpeg";
+import injectorPlate from "@assets/WhatsApp_Image_2026-09-25_at_18.42.211_1790359391842.jpeg";
+import feedComponent from "@assets/WhatsApp_Image_2026-09-25_at_18.42.221_1790359391842.jpeg";
+import cylindricalAssembly from "@assets/WhatsApp_Image_2026-09-25_at_18.43.00_1790359391843.jpeg";
+import hardwareDetailOne from "@assets/WhatsApp_Image_2026-09-25_at_18.44.29_1790359391843.jpeg";
+import hardwareDetailTwo from "@assets/WhatsApp_Image_2026-09-25_at_18.45.59_1790359391843.jpeg";
+import workshopHardware from "@assets/WhatsApp_Image_2026-09-25_at_128.42.21_1790359391843.jpeg";
 
 const spring = { type: "spring" as const, stiffness: 80, damping: 20 };
 const springFast = { type: "spring" as const, stiffness: 120, damping: 22 };
@@ -180,6 +188,61 @@ const projects: Project[] = [
       {
         date: "May 28, 2026",
         text: "Safety protocol drafted. Remote fill and remote ignition required for all hotfires.",
+      },
+    ],
+  },
+  {
+    id: "recent-hardware",
+    name: "RECENT HARDWARE BUILD",
+    subtitle: "Machined Propulsion & Controls",
+    status: "ACTIVE",
+    icon: <Target className="w-5 h-5" />,
+    description:
+      "A photo log of the latest physical build work: machined plates, cylindrical assemblies, threaded interfaces, and the radio hardware supporting the wider Windburst programme.",
+    specs: [
+      { label: "Focus", value: "Machining + controls" },
+      { label: "Status", value: "Build documentation" },
+      { label: "Hardware", value: "Plates + assemblies" },
+      { label: "Electronics", value: "Radio control" },
+    ],
+    images: [
+      {
+        img: machinedPlateStack,
+        caption: "Machined cylindrical plate stack with threaded interfaces",
+      },
+      {
+        img: radioController,
+        caption: "FlySky radio controller for the flight electronics workflow",
+      },
+      {
+        img: injectorPlate,
+        caption: "Machined plate with the latest port pattern",
+      },
+      {
+        img: feedComponent,
+        caption: "Machined cylindrical feed component with threaded connection",
+      },
+      {
+        img: cylindricalAssembly,
+        caption: "Cylindrical hardware assembly with perimeter fasteners",
+      },
+      {
+        img: hardwareDetailOne,
+        caption: "Recent workshop hardware from the current build",
+      },
+      {
+        img: hardwareDetailTwo,
+        caption: "Additional machined hardware from the current build",
+      },
+      {
+        img: workshopHardware,
+        caption: "Latest workshop hardware documentation",
+      },
+    ],
+    updates: [
+      {
+        date: "25 Sept, 2026",
+        text: "Added the latest machined hardware and flight-control photos to the build log.",
       },
     ],
   },
@@ -375,44 +438,30 @@ export default function Projects() {
 
                             {/* Images */}
                             {p.images.length > 0 && (
-                              <div className="flex flex-col gap-2">
-                                <div className="grid grid-cols-2 gap-2">
-                                  {p.images.slice(0, 2).map((img, j) => (
-                                    <motion.div
-                                      key={j}
-                                      whileHover={{ scale: 1.02 }}
-                                      className="relative overflow-hidden border border-white/10 cursor-zoom-in group aspect-[4/3]"
-                                      onClick={() => setLightbox(img)}
-                                    >
-                                      <img
-                                        src={img.img}
-                                        alt={img.caption}
-                                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                                      />
-                                      <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
-                                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                        <ZoomIn className="w-4 h-4 text-white" />
-                                      </div>
-                                    </motion.div>
-                                  ))}
-                                </div>
-                                {p.images[2] && (
+                              <div className="grid grid-cols-2 gap-2">
+                                {p.images.map((img, j) => (
                                   <motion.div
-                                    whileHover={{ scale: 1.01 }}
-                                    className="relative overflow-hidden border border-white/10 cursor-zoom-in group aspect-[16/6]"
-                                    onClick={() => setLightbox(p.images[2])}
+                                    key={`${img.caption}-${j}`}
+                                    whileHover={{ scale: 1.02, y: -3 }}
+                                    className="group relative aspect-[4/3] cursor-zoom-in overflow-hidden border border-white/10"
+                                    onClick={() => setLightbox(img)}
                                   >
                                     <img
-                                      src={p.images[2].img}
-                                      alt={p.images[2].caption}
+                                      src={img.img}
+                                      alt={img.caption}
                                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                                     />
                                     <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
                                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                                       <ZoomIn className="w-4 h-4 text-white" />
                                     </div>
+                                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent px-3 pb-2 pt-8 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                                      <span className="font-mono text-[9px] leading-4 text-white/80">
+                                        {img.caption}
+                                      </span>
+                                    </div>
                                   </motion.div>
-                                )}
+                                ))}
                               </div>
                             )}
                           </div>

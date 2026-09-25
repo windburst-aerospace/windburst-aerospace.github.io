@@ -35,6 +35,14 @@ import openRocket from "@assets//Screenshot 2026-06-30 201305.png";
 import sidAvatar from "@assets/minecraft-render-blazing_phantom-walking-800x1000_(1)_1781639200142.png";
 import kpAvatar from "@assets/minecraft-render-kp007-walking-800x1000_(1)_1781639200145.png";
 import maxAvatar from "@assets/image_1781980338707.webp";
+import machinedPlateStack from "@assets/221321231231_1790359391841.jpeg";
+import radioController from "@assets/WhatsApp_Image_2026-09-25_at_18.42.21_1790359391842.jpeg";
+import injectorPlate from "@assets/WhatsApp_Image_2026-09-25_at_18.42.211_1790359391842.jpeg";
+import feedComponent from "@assets/WhatsApp_Image_2026-09-25_at_18.42.221_1790359391842.jpeg";
+import cylindricalAssembly from "@assets/WhatsApp_Image_2026-09-25_at_18.43.00_1790359391843.jpeg";
+import hardwareDetailOne from "@assets/WhatsApp_Image_2026-09-25_at_18.44.29_1790359391843.jpeg";
+import hardwareDetailTwo from "@assets/WhatsApp_Image_2026-09-25_at_18.45.59_1790359391843.jpeg";
+import workshopHardware from "@assets/WhatsApp_Image_2026-09-25_at_128.42.21_1790359391843.jpeg";
 
 const spring = { type: "spring" as const, stiffness: 80, damping: 20 };
 const springFast = { type: "spring" as const, stiffness: 120, damping: 22 };
@@ -95,6 +103,46 @@ const gallery = [
     img: combustionChamberCrossSection,
     label: "CAD — 800N PROTOTYPE",
     caption: "Combustion chamber cross-section",
+  },
+  {
+    img: machinedPlateStack,
+    label: "BUILD — MACHINED HARDWARE",
+    caption: "Machined cylindrical plate stack with threaded interfaces",
+  },
+  {
+    img: radioController,
+    label: "BUILD — FLIGHT CONTROLS",
+    caption: "FlySky radio controller for the flight electronics workflow",
+  },
+  {
+    img: injectorPlate,
+    label: "BUILD — INJECTOR PLATE",
+    caption: "Machined plate with the latest port pattern",
+  },
+  {
+    img: feedComponent,
+    label: "BUILD — FEED COMPONENT",
+    caption: "Machined cylindrical feed component with threaded connection",
+  },
+  {
+    img: cylindricalAssembly,
+    label: "BUILD — CYLINDRICAL ASSEMBLY",
+    caption: "Cylindrical hardware assembly with perimeter fasteners",
+  },
+  {
+    img: hardwareDetailOne,
+    label: "BUILD — HARDWARE DETAIL",
+    caption: "Recent workshop hardware from the current build",
+  },
+  {
+    img: hardwareDetailTwo,
+    label: "BUILD — HARDWARE DETAIL",
+    caption: "Additional machined hardware from the current build",
+  },
+  {
+    img: workshopHardware,
+    label: "BUILD — WORKSHOP",
+    caption: "Latest workshop hardware documentation",
   },
 ];
 
