@@ -105,7 +105,7 @@ const projects: Project[] = [
       },
       {
         img: machinedPlateStack,
-        caption: "Machined cylindrical plate stack with threaded interfaces",
+        caption: "Engine injector plate interfaces",
       },
       {
         img: injectorPlate,
